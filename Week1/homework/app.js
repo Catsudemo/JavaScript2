@@ -23,7 +23,7 @@ const booksInfo = {
   enma_the_immortal: {
     properties: {
       title: 'Enma the Immortal',
-      language: 'English',
+      language: 'Japanese',
       author: 'Fumi Nakamura',
     },
   },
@@ -65,7 +65,7 @@ const booksInfo = {
   the_next_continent: {
     properties: {
       title: 'The Next Continent',
-      language: 'english',
+      language: 'English',
       author: 'Issui Ogawa',
     },
   },
@@ -79,7 +79,7 @@ const booksInfo = {
   after_dark: {
     properties: {
       title: 'After Dark',
-      language: 'japanese',
+      language: 'Japanese',
       author: 'Haruki Murakami',
     },
   },
@@ -102,14 +102,33 @@ const booksInfo = {
 // };
 
 window.onload = () => {
+  const quotes = [
+    'If you only read the books that everyone else is reading, you can only think what everyone else is thinking. ― Haruki Murakami',
+    'Memories warm you up from the inside. But they also tear you apart. ― Haruki Murakami',
+    "If you remember me, then I don't care if everyone else forgets. ― Haruki Murakami",
+    "There's no such thing as perfect writing, just like there's no such thing as perfect despair. - Haruki Murakami",
+    'They were words that came out of nothing, but they seemed to him somehow significant.He muttered them over again. - Yasunari Kawabata',
+    'Remember the good things; write the bad ones down in here and forget about them.― Kanae Minato',
+    "Just because I've written this book, don't think I've changed. I'm like I was back then, really. - Ryu Murakami",
+  ];
+  console.log(quotes);
+  const rand = quotes[Math.floor(Math.random() * quotes.length)];
+
+  const quoteSpace = document.querySelector('#quoteSpace');
+  const quoteDiv = document.createElement('div');
+  quoteDiv.innerText = rand;
+  quoteSpace.appendChild(quoteDiv);
+
   const myBookSpot = document.querySelector('#bookList');
 
   const div = document.createElement('div');
-  div.innerText = "This is a list of Catt's favourite books";
+  div.setAttribute('class', 'wrapper');
 
+  // eslint-disable-next-line guard-for-in
   for (book in booksInfo) {
     const eachBookDiv = document.createElement('div');
     eachBookDiv.id = book;
+    eachBookDiv.setAttribute('class', 'box');
     const name = document.createElement('h4');
     name.innerText = booksInfo[book].properties.title;
     eachBookDiv.appendChild(name);
@@ -129,36 +148,39 @@ window.onload = () => {
 
     myBookSpot.appendChild(div);
   }
+  console.log('loaded');
+
+  const bookImages = [
+    { memoirs_of_a_geisha: 'book_covers/memoirs_of_a_geisha_img.jpg' },
+    { enma_the_immortal: 'book_covers/enma_the_immortal_img.jpg' },
+    { confessions: 'book_covers/confessions_img.jpg' },
+    { coin_locker_babies: 'book_covers/coin_locker_babies_img.jpg' },
+    { beauty_and_sadness: 'book_covers/beauty_and_sadness_img.jpg' },
+    { house_of_sleeping_beauties: 'book_covers/house_of_sleeping_beauties_img.jpg' },
+    { empress: 'book_covers/empress_img.jpg' },
+    { the_next_continent: 'book_covers/the_next_continent_img.jpg' },
+    { underground: 'book_covers/underground_img.jpg' },
+    { after_dark: 'book_covers/after_dark_img.jpg' },
+  ];
+
+  // function addBookImages(bookPics) {
+  //   const length = bookPics.length;
+  //   for (let i = 0; i < length; i++) {
+  //     console.log(i);
+  //     // document.querySelector(bookPics.pic)
+  //   }
+  // }
+  // addBookImages(bookImages);
+  // console.log(bookImages);
+
+  // eslint-disable-next-line guard-for-in
+  for (image in bookImages) {
+    const imageID = Object.keys(bookImages[image])[0];
+    const lookFor = document.querySelector(`#${imageID}`);
+    const picture = document.createElement('IMG');
+    picture.src = bookImages[image][imageID];
+    lookFor.appendChild(picture);
+
+    console.log(imageID, lookFor);
+  }
 };
-console.log('loaded');
-
-const bookImages = [
-  { memoirs_of_a_geisha: 'book_covers/memoirs_of_a_geisha_img.jpg' },
-  { enma_the_immortal: 'book_covers/enma_the_immortal_img.jpg' },
-  { confessions: 'book_covers/confessions_img.jpg' },
-  { coin_locker_babies: 'book_covers/coin_locker_babies_img.jpg' },
-  { beauty_and_sadness: 'book_covers/beauty_and_sadness_img.jpg' },
-  { house_of_sleeping_beauties: 'book_covers/house_of_sleeping_beauties_img.jpg' },
-  { empress: 'book_covers/empress_img.jpg' },
-  { the_next_continent: 'book_covers/the_next_continent_img.jpg' },
-  { underground: 'book_covers/underground_img.jpg' },
-  { after_dark: 'book_covers/after_dark_img.jpg' },
-];
-
-// function addBookImages(bookPics) {
-//   const length = bookPics.length;
-//   for (let i = 0; i < length; i++) {
-//     console.log(i);
-//     // document.querySelector(bookPics.pic)
-//   }
-// }
-// addBookImages(bookImages);
-// console.log(bookImages);
-
-for (image in bookImages) {
-  const imageID = Object.keys(bookImages[image])[0];
-  const queryID = '#' + imageID;
-  const lookFor = document.querySelector(queryID);
-
-  console.log(imageID, lookFor, queryID, document.querySelector('#confessions'));
-}

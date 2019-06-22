@@ -1,1 +1,84 @@
-/* add your styling here */
+@import url('https://fonts.googleapis.com/css?family=Abel');
+@import url('https://fonts.googleapis.com/css?family=Karla');
+body {
+  background-color: #2E2C2F;
+  font-family: Karla;
+  margin: 40px;
+  color: #F4F4ED;
+  font-size: 30px;
+}
+
+h4 {
+  text-decoration: underline;
+}
+
+a:visited {
+  color: turquoise;
+}
+
+section {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 85%;
+  height: auto;
+  background-color: #2E2C2F;
+  text-align: center;
+}
+
+.wrapper {
+  font-family: Abel;
+  text-align: left;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  font-size: 20px;
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 10px;
+  background-color: #2E2C2F;
+  color: #444;
+}
+
+.box {
+  background-color: #313638;
+  color: #C6C5B9;
+  border-radius: 5px;
+  font-size: 100%;
+  min-width: 200px;
+  min-height: 400px;
+}
+
+img {
+  width: auto;
+  height: 500px;
+  padding: 10px;
+  margin: 10px;
+}
+
+#quoteSpace {
+  padding: 20px;
+  font-family: Abel;
+  font-size: 25px;
+  font-style: italic;
+}
+
+#footer {
+  font-size: 20px;
+}
+
+@media screen and (max-width: 600px) {
+  img {
+    display: none;
+  }
+  @media only screen and (max-width: 800px) {
+    .wrapper {
+      display: grid;
+      align-items: center;
+      grid-template-columns: 1fr 1fr
+    }
+    .box {
+      height: 400px;
+    }

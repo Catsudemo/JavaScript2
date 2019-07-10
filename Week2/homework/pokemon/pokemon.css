@@ -64,13 +64,14 @@ section {
   color: #c6c5b9;
   border-radius: 5px;
   font-size: 100%;
+  width: 25%;
   max-width: 400px;
   min-height: 200px;
 }
 
 img {
-  width: auto;
-  height: 150px;
+  width: 300%;
+  height: auto;
   padding: 10px;
   margin: 10px;
 }
@@ -81,17 +82,38 @@ img {
 }
 
 @media screen and (max-width: 600px) {
-  img {
-    display: none;
+  .wrapper {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr;
   }
-  @media only screen and (max-width: 800px) {
-    .wrapper {
-      display: grid;
-      align-items: center;
-      grid-template-columns: 1fr 1fr;
-    }
-    .box {
-      height: 400px;
-    }
+  img {
+    width: auto;
+    height: 80px;
+    padding: 5px;
+    margin: 5px;
+    ;
+  }
+  #oakImage {
+    float: left;
+    min-height: 200px;
+    width: auto;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .wrapper {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr 1fr;
+  }
+  .box {
+    height: 400px;
+  }
+  #oakSide {
+    float: left;
+  }
+  #oakImage {
+    display: none;
   }
 }

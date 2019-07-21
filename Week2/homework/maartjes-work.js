@@ -47,12 +47,12 @@ const maartjesHourlyRate = 20;
 const reducer = (accumulator, currentValue) => accumulator + currentValue;
 
 function computeEarnings(tasks, hourlyRate) {
-  const taskCost = tasks
+  const earnings = tasks
     .map(task => task.duration / 60)
-    .filter(task => task > 2)
+    .filter(task => task > 1)
     .map(task => task * hourlyRate)
     .reduce(reducer, 0);
-  return taskCost.toFixed(2);
+  return earnings;
 }
 
 // eslint-disable-next-line no-unused-vars

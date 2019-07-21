@@ -1,7 +1,9 @@
 'use strict';
 
 function Dog() {
-  // add your code here
+  this.name = 'Dawg';
+  this.color = 'Dog colored';
+  this.numLegs = 3;
 }
 
 const hound = new Dog();

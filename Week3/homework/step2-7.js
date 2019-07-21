@@ -21,3 +21,5 @@ f2(y);
 console.log(y);
 
 // Add your explanation as a comment here
+// The first function refers to a variable that has an integer value. When the function is run, it only takes the integer, it does not change the variable.
+// The second function refers to an object. This has a position in the memory. When the function is run it updates the value in the object.

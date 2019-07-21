@@ -12,7 +12,7 @@
 //   'after_dark',
 // ];
 
-const booksInfo = {
+let booksInfo = {
   memoirs_of_a_geisha: {
     properties: {
       title: 'Memoirs of a Geisha',

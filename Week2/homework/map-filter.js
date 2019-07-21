@@ -1,7 +1,7 @@
 'use strict';
 
 function doubleOddNumbers(numbers) {
-  return numbers.map(number => (number % 2 !== 0 ? number * 2 : number));
+  return numbers.filter(number => number % 2 !== 0).map(number => number * 2);
 }
 
 const myNumbers = [1, 2, 3, 4];

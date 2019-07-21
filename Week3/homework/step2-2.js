@@ -1,25 +1,39 @@
 'use strict';
 
-function threeFive(startIndex, stopIndex, threeCallback, fiveCallback) {
-  function makeNumbers {
+function sayThree() {
+  return 'It is three';
+}
+
+function sayFive() {
+  return 'It is five';
+}
+
+function threeFive(startIndex, stopIndex, threeCallback = sayThree, fiveCallback = sayFive) {
+  function makeNumbers(startNum, endNum) {
     const numbers = [];
-    for (let i = startIndex; i <= stopIndex; i++) {
+    for (let i = startNum; i <= endNum; i++) {
       numbers.push(i);
     }
+    return numbers;
   }
+  const numberArr = makeNumbers(startIndex, stopIndex);
 
-  function sayThree(number) {
-    const isThree = (numbers = > (number % 3 == 0 ? threeCallback : number))
-    return isThree
-    
-    //}
-
-    function sayFive(number) {
-    // Replace this comment and the next line with your code
-    console.log(number);
-  }
+  return numberArr.map(eachNum => {
+    if (eachNum % 3 === 0 && eachNum % 5 === 0) {
+      return threeCallback(eachNum) + fiveCallback(eachNum);
+    }
+    if (eachNum % 3 === 0) {
+      return threeCallback(eachNum);
+    }
+    if (eachNum % 5 === 0) {
+      return fiveCallback(eachNum);
+    }
+    return eachNum;
+  });
 }
-//threeFive(10, 15, sayThree, sayFive);
+
+threeFive(1, 15, sayThree, sayFive);
+threeFive(10, 15, sayThree, sayFive);
 
 // Do not change or remove anything below this line
 module.exports = threeFive;
